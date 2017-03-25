@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- templates -->
+	<definition name="base" template="/WEB-INF/template/blank.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<!-- <put-attribute name="header" value="/WEB-INF/views/tiles/shared/header.jsp"></put-attribute> -->
+		<put-attribute name="content" value=""></put-attribute>
+		<!-- <put-attribute name="footer" value="/WEB-INF/views/tiles/shared/footer.jsp"></put-attribute> -->
+		<put-list-attribute name="javascripts">
+			<!-- jQuery 2.2.3 -->
+			<add-attribute value="/static/plugins/jQuery/jquery-2.2.3.min.js" />
+			<!-- Bootstrap 3.3.6 -->
+			<add-attribute value="/static/bootstrap/js/bootstrap.min.js" />
+			<!-- SlimScroll -->
+			<add-attribute value="/static/plugins/slimScroll/jquery.slimscroll.min.js" />
+			<!-- FastClick -->
+			<add-attribute  value="/static/plugins/fastclick/fastclick.js"/>
+			<!-- AdminLTE App -->
+			<add-attribute  value="/static/dist/js/app.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="stylesheets">
+			<!-- Bootstrap 3.3.6 -->
+			<add-attribute value="/static/bootstrap/css/bootstrap.min.css" />
+			<!-- Theme style -->
+			<add-attribute value="/static/dist/css/AdminLTE.min.css" />
+			<!-- AdminLTE Skins. Choose a skin from the css/skins
+       			folder instead of downloading all of them to reduce the load. -->
+			<add-attribute value="/static/dist/css/skins/_all-skins.min.css"></add-attribute>
+		</put-list-attribute>
+	</definition>
+
+	<!-- HomeController -->
+	<definition name="user/homes" extends="base">
+		<put-attribute name="title" value="User"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/jsp/user/userstrut2tag.jsp"></put-attribute>
+		<put-list-attribute name="stylesheets" inherit="true"></put-list-attribute>
+		<put-list-attribute name="javascripts" inherit="true"></put-list-attribute>
+	</definition>
+	
+	<definition name="user/edit" extends="base">
+		<put-attribute name="title" value="User"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/jsp/user/user.jsp"></put-attribute>
+		<put-list-attribute name="stylesheets" inherit="true"></put-list-attribute>
+		<put-list-attribute name="javascripts" inherit="true"></put-list-attribute>
+	</definition>
+
+	<!-- LoginController -->
+	<!-- <definition name="login/login" extends="base">
+		<put-attribute name="title" value="Login"></put-attribute>
+		<put-attribute name="header" value=""></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/views/tiles/user/login.jsp"></put-attribute>
+		<put-attribute name="footer" value=""></put-attribute>
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/WEB-INF/static/stylesheets/sign-in.css" />
+		</put-list-attribute>
+	</definition> -->
+
+	<!-- UserController -->
+	<!-- <definition name="user/list" extends="base">
+		<put-attribute name="title" value="Users"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/tiles/user/list.jsp"></put-attribute>
+	</definition> -->
+</tiles-definitions>
+
