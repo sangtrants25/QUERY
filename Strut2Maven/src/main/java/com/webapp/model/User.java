@@ -1,5 +1,10 @@
 package com.webapp.model;
 
+import com.opensymphony.xwork2.validator.annotations.EmailValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.StringLengthFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.ValidatorType;
+
 public class User {
 	private String id;
 	private String name;
@@ -19,18 +24,24 @@ public class User {
 	public String getName() {
 		return name;
 	}
+	@RequiredStringValidator(type = ValidatorType.FIELD, message = "UserName is a required field")
+	@StringLengthFieldValidator(type = ValidatorType.FIELD, maxLength = "12", minLength = "6", message = "UserName must be of length between 6 and 12")
 	public void setName(String name) {
 		this.name = name;
 	}
 	public String getPassword() {
 		return password;
 	}
+	@RequiredStringValidator(type = ValidatorType.FIELD, message = "password is a required field")
+	@StringLengthFieldValidator(type = ValidatorType.FIELD, maxLength = "12", minLength = "6", message = "password must be of length between 6 and 12")
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	public String getEmail() {
 		return email;
 	}
+	@RequiredStringValidator(type = ValidatorType.FIELD, message = "EmailAddress is a required field")
+	@EmailValidator(type = ValidatorType.FIELD, message = "Email Address must be valid")
 	public void setEmail(String email) {
 		this.email = email;
 	}

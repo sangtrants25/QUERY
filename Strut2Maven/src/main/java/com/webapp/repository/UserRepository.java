@@ -53,21 +53,29 @@ public class UserRepository {
 		if (dbConnection != null) {
 			try {
 				String sql = "select * from [user]";
-				PreparedStatement prepStatement = dbConnection.prepareStatement(sql);
-				ResultSet rs = prepStatement.getResultSet();
-				if(rs!=null){
-					while(rs.next()){
-						User user = new User();
-						user.setId(rs.getString("id"));
-						user.setName(rs.getString("name"));
-						listUser.add(user);
+				Statement stmt = dbConnection.createStatement();
+			     ResultSet rs = stmt.executeQuery(sql);
+			     if(rs!=null){
+						while(rs.next()){
+							User user = new User();
+							user.setId(rs.getString("id"));
+							user.setName(rs.getString("name"));
+							user.setPassword(rs.getString("password"));
+							user.setEmail(rs.getString("email"));
+							listUser.add(user);
+						}
 					}
-				}
-
-				prepStatement.executeUpdate();
+				stmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} 
+			} finally{
+				try {
+					dbConnection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}	
 		return listUser;
 	}

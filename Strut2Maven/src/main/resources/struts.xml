@@ -45,13 +45,23 @@
 		  <result name="invalidSession">/jsp/LoginView.jsp</result>
 		  <result name="actionForward" type="redirect">${actionForwardURL}</result>
 		</global-results>
- 	  
+
 	<action name="home">
 		<result type="tiles">user/homes</result>
 	</action>
 	<action name="user" class="com.webapp.action.UserAction" method="execute">
-		<result type="tiles">user/edit</result>
+		<result type="tiles" name="ERROR">user/edit</result>
+		<result type="tiles" name="SUCCESS">user/edit</result>
+		<result type="tiles" name="DISPLAY">user/edit</result>
 	</action>
+	<action name="UserFindAPI" class="com.webapp.api.UserFindAPIAction">
+		<result type="json">
+			<param name="noCache">true</param>
+			<param name="excludeNullProperties">true</param>
+			<param name="root">jsonString</param>
+		</result>
+	</action>
+	
     <action name="login" class="com.webapp.action.LoginAction" method="execute">
 		<result name="SUCCESS">/WEB-INF/jsp/login.jsp</result>
 		<result name="ERROR">/WEB-INF/jsp/login.jsp</result>
