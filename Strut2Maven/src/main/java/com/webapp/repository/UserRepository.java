@@ -68,14 +68,7 @@ public class UserRepository {
 				stmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} finally{
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			} 
 		}	
 		return listUser;
 	}
