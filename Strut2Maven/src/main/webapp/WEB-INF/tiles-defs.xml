@@ -26,7 +26,9 @@
 			<add-attribute value="/static/dist/css/AdminLTE.min.css" />
 			<!-- AdminLTE Skins. Choose a skin from the css/skins
        			folder instead of downloading all of them to reduce the load. -->
-			<add-attribute value="/static/dist/css/skins/_all-skins.min.css"></add-attribute>
+			<add-attribute value="/static/dist/css/skins/_all-skins.min.css" />
+			<add-attribute value="/static/plugins/font-awesome-4.7.0/css/font-awesome.min.css" />
+			<add-attribute value="/static/plugins/ionicons-2.0.1/css/ionicons.min.css" />
 		</put-list-attribute>
 	</definition>
 
