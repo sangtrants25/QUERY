@@ -1,8 +1,9 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
-		Blank page <small>it all starts here</small>
+		<s:property value="getText('user.label.title')" />
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -25,27 +26,33 @@
 					<s:form cssClass="form-horizontal" action="user"> 
 						<div class="box-body">
 							<div class="form-group">
+								<s:label value="Id" cssClass="col-sm-2 control-label"></s:label>
+								<div class="col-sm-10">
+									<s:textfield cssClass="form-control" id="userId"  name="user.id"> </s:textfield>
+								</div>
+							</div>
+							<div class="form-group">
 								<s:label value="Name" cssClass="col-sm-2 control-label"></s:label>
 								<div class="col-sm-10">
-									<s:textfield cssClass="form-control" d="inputEmail3"  name="user.name"> </s:textfield>
+									<s:textfield cssClass="form-control" id="username"  name="user.name"> </s:textfield>
 								</div>
 							</div>
 							<div class="form-group">
 								<s:label value="Email" cssClass="col-sm-2 control-label"></s:label>
 								<div class="col-sm-10">
-									<s:textfield cssClass="form-control" d="inputEmail3"  name="user.email"> </s:textfield>
+									<s:textfield cssClass="form-control" id="email"  name="user.email"> </s:textfield>
 								</div>
 							</div>
 							<div class="form-group">
 								<s:label value="Password" for="inputPassword3" cssClass="col-sm-2 control-label"></s:label>
 								<div class="col-sm-10">
-									<s:password cssClass="form-control" id="inputPassword3" name="user.password"> </s:password>
+									<s:password cssClass="form-control" id="password" name="user.password"> </s:password>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
 									<div class="checkbox">
-										<s:label value="checkbox" ><s:checkbox name="checkbox" /> </s:label>
+										<s:label value="Hoạt động" ><s:checkbox name="checkbox" /> </s:label>
 									</div>
 								</div>
 							</div>

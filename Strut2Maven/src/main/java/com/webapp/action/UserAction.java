@@ -3,6 +3,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.webapp.model.User;
 import com.webapp.service.UserService;
 import com.webapp.util.Constant;
+import com.webapp.util.DbUtil;
 
 public class UserAction extends ActionSupport{
 	 /**
@@ -12,12 +13,15 @@ public class UserAction extends ActionSupport{
 
 	@Override
 	  public String execute() throws Exception {
-		  if(getAction().equals(Constant.TYPE_NEW)){
+		  UserService userService = new UserService();
+		  setAction("NEW");
+		  if(getAction().equalsIgnoreCase(Constant.TYPE_NEW)){
+			  setUser( new User());
+			  getUser().setId(DbUtil.createID());
 			  return "NEW";
-		  }else if(getAction().equals(Constant.TYPE_UPDATE)){
-			  UserService userService = new UserService();
+		  }else if(getAction().equalsIgnoreCase(Constant.TYPE_UPDATE)){
 			  return "UPDATE";
-		  } else if(getAction().equals(Constant.TYPE_VIEW)){
+		  } else if(getAction().equalsIgnoreCase(Constant.TYPE_VIEW)){
 			  return "VIEW";
 		  } else{
 			  return SUCCESS;

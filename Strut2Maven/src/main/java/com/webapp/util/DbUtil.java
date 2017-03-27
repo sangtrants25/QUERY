@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
+import java.util.UUID;
 
 public class DbUtil {
 	private static Connection dbConnection = null;
@@ -35,5 +36,10 @@ public class DbUtil {
 	          return dbConnection;
 	      }
 	  }
-
+	  public static String createID(){
+		// Creating a random UUID (Universally unique identifier).
+	        UUID uuid = UUID.randomUUID();
+	        String uniqueId = uuid.toString();
+	        return uniqueId;
+	  }
 }

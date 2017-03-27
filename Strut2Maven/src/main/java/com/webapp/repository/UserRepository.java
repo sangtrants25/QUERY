@@ -21,17 +21,8 @@ public class UserRepository {
 	public void create(User user){
 		if (dbConnection != null) {
 	          try {
-	              PreparedStatement prepStatement = dbConnection
-	                      .prepareStatement("insert into [user](name, password,email,createdUser,createdDate,modifiedUser,modifiedDate,status) "
-	                      		+ "values (?, ?, ?, ?, ?, ?,?,?)");
-	              prepStatement.setString(1, "AA");
-	              prepStatement.setString(2, "AA");
-	              prepStatement.setString(3, "AA");
-	              prepStatement.setString(4, "1");
-	              prepStatement.setString(5, "AA");
-	              prepStatement.setString(6, "AA");
-	              prepStatement.setString(7, "AA");
-	              prepStatement.setString(8, "AA");
+	        	  PreparedStatement prepStatement = dbConnection.prepareStatement("insert into [user](id) values (?)");
+	              prepStatement.setString(1, user.getId());
 	              prepStatement.executeUpdate();
 	          } catch (SQLException e) {
 	              e.printStackTrace();
