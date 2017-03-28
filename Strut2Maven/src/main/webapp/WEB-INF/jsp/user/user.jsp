@@ -28,7 +28,7 @@
 							<div class="form-group">
 								<s:label value="Id" cssClass="col-sm-2 control-label"></s:label>
 								<div class="col-sm-10">
-									<s:textfield cssClass="form-control" id="userId"  name="user.id"> </s:textfield>
+									<s:textfield cssClass="form-control" id="userId"  name="user.id" disabled="true"> </s:textfield>
 								</div>
 							</div>
 							<div class="form-group">
@@ -59,8 +59,8 @@
 						</div>
 						<!-- /.box-body -->
 						<div class="box-footer">
-							<s:submit type="button" cssClass="btn btn-default"  onclick="return false;"/>
-							<s:submit type="button" cssClass="btn btn-info pull-right"  onclick="return false;"/>
+							<s:submit type="button" cssClass="btn btn-default" />
+							<s:submit type="button" cssClass="btn btn-info pull-right" />
 						</div>
 						<!-- /.box-footer -->
 						<s:hidden name="user.createdUser"> </s:hidden>
@@ -68,6 +68,8 @@
 						<s:hidden name="user.modifiedUser"> </s:hidden>
 						<s:hidden name="user.modifiedDate"> </s:hidden>
 						<s:hidden name="user.status"> </s:hidden>
+						<s:hidden name="action" value="create"> </s:hidden>
+						<s:hidden name="user.id" > </s:hidden>
 					</s:form>
 				</div>
 				<!-- /.box -->

@@ -10,9 +10,8 @@ public class UserService {
 	public UserService(){
 		userReposity = new UserRepository();
 	}
-	public String create(User user){
-		userReposity.create(user);
-		return "";
+	public boolean create(User user){
+		return userReposity.create(user);
 	}
 	public List<User> listAll(){
 		return userReposity.listAll();

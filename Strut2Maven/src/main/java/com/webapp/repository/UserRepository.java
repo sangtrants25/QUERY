@@ -18,17 +18,37 @@ public class UserRepository {
 		dbConnection = DbUtil.getConnection();
 	}
 	
-	public void create(User user){
+	public boolean create(User user){
+		//setup for create new record
+		user.setCreatedDate("2017-01-01");
+		user.setModifiedDate("2017-01-01");
+		user.setCreatedUser("1");
+		user.setModifiedUser("1");
+		user.setStatus("1");
+		int success = 0;
 		if (dbConnection != null) {
 	          try {
-	        	  PreparedStatement prepStatement = dbConnection.prepareStatement("insert into [user](id) values (?)");
+	        	  String sql = "INSERT INTO [dbo].[User]([ID],[Name],[Password],[Email],[CreatedUser],[CreatedDate],[ModifiedUser],[ModifiedDate],[Status])"
+	        			  + "VALUES(?,?,?,?,?,?,?,?,?)";
+	        	  PreparedStatement prepStatement = dbConnection.prepareStatement(sql);
 	              prepStatement.setString(1, user.getId());
-	              prepStatement.executeUpdate();
+	              prepStatement.setString(2, user.getName());
+	              prepStatement.setString(3, user.getPassword());
+	              prepStatement.setString(4, user.getEmail());
+	              prepStatement.setString(5, user.getCreatedUser());
+	              prepStatement.setString(6, user.getCreatedDate());
+	              prepStatement.setString(7, user.getModifiedUser());
+	              prepStatement.setString(8, user.getModifiedDate());
+	              prepStatement.setString(9, user.getStatus());
+	              
+	              success = prepStatement.executeUpdate();
 	          } catch (SQLException e) {
 	              e.printStackTrace();
 	          } 
 	      }
-		
+		if(success == 1)
+			return true;
+		return false;
 	}
 	public void update(User user){
 
