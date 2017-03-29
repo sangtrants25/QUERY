@@ -46,6 +46,19 @@
 		<put-list-attribute name="stylesheets" inherit="true"></put-list-attribute>
 		<put-list-attribute name="javascripts" inherit="true"></put-list-attribute>
 	</definition>
+	
+	<definition name="user/find" extends="base">
+		<put-attribute name="title" value="UserFind"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/jsp/user/userfind.jsp"></put-attribute>
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/static/css/trirand/ui.jqgrid-bootstrap.css"/>
+		</put-list-attribute>
+		<put-list-attribute name="javascripts" inherit="true">
+			<add-attribute value="/static/js/trirand/i18n/grid.locale-en.js"/>
+			<add-attribute value="/static/js/trirand/jquery.jqGrid.min.js"/>
+			<add-attribute value="/static/js/app/userfind.js"/>
+		</put-list-attribute>
+	</definition>
 
 	<!-- LoginController -->
 	<!-- <definition name="login/login" extends="base">

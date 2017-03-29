@@ -55,6 +55,10 @@
 		<result type="tiles" name="VIEW">user/edit</result>
 	</action>
 	
+	<action name="userfind" class="com.webapp.action.UserFindAction" method="execute">
+		<result type="tiles" name="SUCCESS">user/find</result>
+	</action>
+	
     <action name="login" class="com.webapp.action.LoginAction" method="execute">
 		<result name="SUCCESS">/WEB-INF/jsp/login.jsp</result>
 		<result name="ERROR">/WEB-INF/jsp/login.jsp</result>
@@ -69,5 +73,8 @@
 				<param name="root">jsonString</param>
 			</result>
 		</action>
+		<action name="UserJsonAction" class="com.webapp.api.UserJsonAction">
+       	   <result type="json" />
+     	 </action>
 	</package>
 </struts>

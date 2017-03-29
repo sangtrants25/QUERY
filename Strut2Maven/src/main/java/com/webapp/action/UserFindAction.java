@@ -10,6 +10,7 @@ public class UserFindAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		return SUCCESS;
+		
+		return "SUCCESS";
 	}
 }

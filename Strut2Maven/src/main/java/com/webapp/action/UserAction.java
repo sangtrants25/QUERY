@@ -32,7 +32,6 @@ public class UserAction extends ActionSupport{
 			   } else{
 				   return "NEW";
 			   }
-			  
 		  }else if(getAction().equalsIgnoreCase(Constant.TYPE_UPDATE)){
 			  return "UPDATE";
 		  } else if(getAction().equalsIgnoreCase(Constant.TYPE_VIEW)){

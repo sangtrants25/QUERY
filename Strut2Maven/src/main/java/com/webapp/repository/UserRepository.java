@@ -73,6 +73,11 @@ public class UserRepository {
 							user.setName(rs.getString("name"));
 							user.setPassword(rs.getString("password"));
 							user.setEmail(rs.getString("email"));
+							user.setCreatedDate(rs.getString("createdDate"));
+							user.setCreatedUser(rs.getString("createdUser"));
+							user.setModifiedDate(rs.getString("modifiedDate"));
+							user.setModifiedUser(rs.getString("modifiedUser"));
+							user.setStatus(rs.getString("status"));
 							listUser.add(user);
 						}
 					}
