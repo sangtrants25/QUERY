@@ -1,5 +1,11 @@
 package com.webapp.api;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
 import com.webapp.service.UserService;
@@ -12,24 +18,27 @@ public class UserFindAPIAction extends ActionSupport{
 	private String jsonString;
 
     public String execute() {
-        Gson gson = new Gson();
-        UserService userService = new UserService();
-        jsonString = gson.toJson(userService.listAll());
-        /*JSONObject json = new JSONObject();
-        Map<String, String> map = new HashMap<String, String>();
+    	UserService userService = new UserService();
+        /*Gson gson = new Gson();
+       
+        jsonString = gson.toJson(userService.listAll());*/
+        
+        Gson gson                    = new Gson();
+        String jsonString            = gson.toJson(userService.listAll());
+        HttpServletResponse response = ServletActionContext.getResponse();
 
-        map.put("SeqNo", (frmAssign.getSeqNo()) + "+" + (frmAssign.getRepName()));
-        map.put("txtOfficerBadge", tmp.readFieldData("txtOfficerBadge"));
-        map.put("txtOfficerName", tmp.readFieldData("txtOfficerName"));
-        map.put("AgencyName", frmAssign.getAgencyName());
-        map.put("txtDateAssigned", DateUtility.createDate(frmAssign.getTxtDateAssigned()));
-        map.put("txtDateRelease", DateUtility.createDate(frmAssign.getTxtDateRelease()));
-        map.put("txtAssignStatus", frmAssign.getTxtAssignStatus());
-        map.put("txtCaseNextRevDate", DateUtility.createDate(frmAssign.getTxtCaseNextRevDate()));
+        response.setContentType("text/plain");
+        try {
+			response.getWriter().write(jsonString );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-        return json;*/
-        System.out.println(jsonString);
-        return "success";
+        return null;
+        
+        //System.out.println(jsonString);
+        //return "success";
     }
     public String getJsonString() {
         return jsonString;

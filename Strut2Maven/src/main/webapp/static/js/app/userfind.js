@@ -9,10 +9,10 @@ $(window).resize(function () {
 
 $(document).ready(function () {
 	$("#jqGrid").jqGrid({
-		url: 'http://localhost:8080/Strut2Maven/json/UserFindAPI',
-		mtype: "GET",
+		/*url: 'http://localhost:8080/Strut2Maven/GridAction',
+		mtype: "GET",*/
 		styleUI : 'Bootstrap',
-		datatype: "jsonp",
+		datatype: "local",
 		colNames: ['Id', 'Name', 'Email','Password','CreateDate','ModifiedDate'],
 		colModel: [
 			{ label: 'UserID', name: 'id', key: true, width: 75,sorttype: 'int' },
