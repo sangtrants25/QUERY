@@ -59,6 +59,12 @@
 			<add-attribute value="/static/js/app/userfind.js"/>
 		</put-list-attribute>
 	</definition>
+	<definition name="customer/edit" extends="base">
+		<put-attribute name="title" value="Customer"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/jsp/customer/customer.jsp"></put-attribute>
+		<put-list-attribute name="stylesheets" inherit="true"></put-list-attribute>
+		<put-list-attribute name="javascripts" inherit="true"></put-list-attribute>
+	</definition>
 
 	<!-- LoginController -->
 	<!-- <definition name="login/login" extends="base">

@@ -59,6 +59,12 @@
 		<result type="tiles" name="SUCCESS">user/find</result>
 	</action>
 	
+	<action name="customer" class="com.webapp.action.CustomerAction" method="execute">
+		<result type="tiles" name="NEW">customer/edit</result>
+		<result type="tiles" name="UPDATE">customer/edit</result>
+		<result type="tiles" name="VIEW">customer/edit</result>
+	</action>
+	
     <action name="login" class="com.webapp.action.LoginAction" method="execute">
 		<result name="SUCCESS">/WEB-INF/jsp/login.jsp</result>
 		<result name="ERROR">/WEB-INF/jsp/login.jsp</result>
