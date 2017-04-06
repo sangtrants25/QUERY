@@ -1,5 +1,8 @@
 package com.webapp.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpRequest;
@@ -52,6 +55,8 @@ public class CustomerAction extends ActionSupport {
 	}
 
 	private Customer Cus;
+	private List<String> ListString;
+
 	private boolean checkbox;
 	private String action;
 	private String actionForwardURL;
@@ -87,4 +92,17 @@ public class CustomerAction extends ActionSupport {
 	public void setActionForwardURL(String actionForwardURL) {
 		this.actionForwardURL = actionForwardURL;
 	}
+	
+	public CustomerAction(){
+		ListString = new ArrayList<String>();
+	}
+
+	public List<String> getListString() {
+		return ListString;
+	}
+
+	public void setListString(List<String> listString) {
+		ListString = listString;
+	}
+ 
 }

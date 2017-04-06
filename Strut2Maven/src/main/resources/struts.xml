@@ -3,87 +3,129 @@
    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-   <constant name="struts.devMode" value="false" />
-   <constant name="struts.action.extension" value=",action,do,html" />
-   <constant name="struts.ui.theme" value="simple" />
-   <constant name="struts.multipart.maxSize" value="104857600" />
-   <constant name="struts.custom.i18n.resources" value="MessageResources" />
-   <package name="default" namespace="/" extends="struts-default">
-      
-   	<result-types>
-       <result-type name="tiles" 
-       class="org.apache.struts2.views.tiles.TilesResult" />
-    </result-types>
-    <!-- stack without the parameter interceptor to avoid having values in forms overwritten when the MainMenu and TDL refresh -->
-   	<interceptors>
-		  <interceptor-stack name="NoParamStack">
-		     <interceptor-ref name="exception"/>
-         <interceptor-ref name="alias"/>
-         <interceptor-ref name="servletConfig"/>
-         <interceptor-ref name="i18n"/>
-         <interceptor-ref name="prepare"/>
-         <interceptor-ref name="chain"/>
-         <interceptor-ref name="scopedModelDriven"/>
-         <interceptor-ref name="modelDriven"/>
-         <interceptor-ref name="fileUpload"/>
-         <interceptor-ref name="checkbox"/>
-         <interceptor-ref name="multiselect"/>
-         <interceptor-ref name="staticParams"/>
-         <interceptor-ref name="actionMappingParams"/>
-         <interceptor-ref name="conversionError"/>
-         <interceptor-ref name="validation">
-             <param name="excludeMethods">input,back,cancel,browse</param>
-         </interceptor-ref>
-         <interceptor-ref name="workflow">
-             <param name="excludeMethods">input,back,cancel,browse</param>
-         </interceptor-ref>
-         <interceptor-ref name="debugging"/>
-		  </interceptor-stack>
-    </interceptors>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.action.extension" value=",action,do,html" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.multipart.maxSize" value="104857600" />
+	<constant name="struts.custom.i18n.resources" value="MessageResources" />
+	<package name="default" namespace="/" extends="struts-default">
 
-   	<global-results>
-		  <result name="invalidSession">/jsp/LoginView.jsp</result>
-		  <result name="actionForward" type="redirect">${actionForwardURL}</result>
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		<!-- stack without the parameter interceptor to avoid having values in 
+			forms overwritten when the MainMenu and TDL refresh -->
+		<interceptors>
+			<interceptor-stack name="NoParamStack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="scopedModelDriven" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="multiselect" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="debugging" />
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="invalidSession">/jsp/LoginView.jsp</result>
+			<result name="actionForward" type="redirect">${actionForwardURL}</result>
 		</global-results>
 
-	<action name="home">
-		<result type="tiles">user/homes</result>
-	</action>
-	<action name="user" class="com.webapp.action.UserAction" method="execute">
-		<result type="tiles" name="NEW">user/edit</result>
-		<result type="tiles" name="UPDATE">user/edit</result>
-		<result type="tiles" name="VIEW">user/edit</result>
-	</action>
-	
-	<action name="userfind" class="com.webapp.action.UserFindAction" method="execute">
-		<result type="tiles" name="SUCCESS">user/find</result>
-	</action>
-	
-	<action name="customer" class="com.webapp.action.CustomerAction" method="execute">
-		<result type="tiles" name="NEW">customer/edit</result>
-		<result type="tiles" name="UPDATE">customer/edit</result>
-		<result type="tiles" name="VIEW">customer/edit</result>
-	</action>
-	
-    <action name="login" class="com.webapp.action.LoginAction" method="execute">
-		<result name="SUCCESS">/WEB-INF/jsp/login.jsp</result>
-		<result name="ERROR">/WEB-INF/jsp/login.jsp</result>
-	</action>
-	<action name="gridAction" class="com.webapp.api.GridAction" method="execute"></action>
-   </package>
-   
-   <package name="json" extends="json-default">
+		<action name="home">
+			<result type="tiles">user/homes</result>
+		</action>
+		<action name="user" class="com.webapp.action.UserAction"
+			method="execute">
+			<result type="tiles" name="NEW">user/edit</result>
+			<result type="tiles" name="UPDATE">user/edit</result>
+			<result type="tiles" name="VIEW">user/edit</result>
+		</action>
+
+		<action name="userfind" class="com.webapp.action.UserFindAction"
+			method="execute">
+			<result type="tiles" name="SUCCESS">user/find</result>
+		</action>
+
+		<action name="customer" class="com.webapp.action.CustomerAction"
+			method="execute">
+			<result type="tiles" name="NEW">customer/edit</result>
+			<result type="tiles" name="UPDATE">customer/edit</result>
+			<result type="tiles" name="VIEW">customer/edit</result>
+		</action>
+
+		<action name="login" class="com.webapp.action.LoginAction"
+			method="execute">
+			<result name="SUCCESS">/WEB-INF/jsp/login.jsp</result>
+			<result name="ERROR">/WEB-INF/jsp/login.jsp</result>
+		</action>
+		<action name="gridAction" class="com.webapp.api.GridAction"
+			method="execute"></action>
+	</package>
+
+	<package name="json" extends="json-default">
 		<action name="UserFindAPI" class="com.webapp.api.UserFindAPIAction">
 			<result type="json">
 				<param name="noCache">true</param>
 				<param name="excludeNullProperties">true</param>
 				<param name="root">jsonString</param>
-				 <param name="contentType">application/json</param>
-				 <param name="encoding">UTF-8</param>
+				<param name="contentType">application/json</param>
+				<param name="encoding">UTF-8</param>
 			</result>
 		</action>
 		<action name="UserJsonAction" class="com.webapp.api.UserJsonAction">
-       	   <result type="json" />
-     	 </action>
+			<result type="json" />
+		</action>
+	</package>
+
+	<!-- Pagekage for ajax -->
+	<package name="AjaxJson" namespace="/" extends="json-default">
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+		<interceptors>
+			<interceptor name="json"
+				class="org.apache.struts2.json.JSONInterceptor" />
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="json">
+					<param name="enableSMD">true</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="defaultStack" />
+
+		<!-- Get district -->
+		<action name="getDistrict" class="com.webapp.action.DistrictAction"
+			method="actionGetListDistrict">
+			<result type="json" />
+		</action>
+
+		<!-- Get province -->
+		<action name="getProvince" class="com.webapp.action.DistrictAction"
+			method="actionGetListProvince">
+			<result type="json" />
+		</action>
+
+		<!-- Get ward -->
+		<action name="getWard" class="com.webapp.action.DistrictAction"
+			method="actionGetListWard">
+			<result type="json" />
+		</action>
+
 	</package>
 </struts>

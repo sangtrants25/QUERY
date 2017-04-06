@@ -59,11 +59,17 @@
 			<add-attribute value="/static/js/app/userfind.js"/>
 		</put-list-attribute>
 	</definition>
+	
+	<!-- Customer controller -->
 	<definition name="customer/edit" extends="base">
 		<put-attribute name="title" value="Customer"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/jsp/customer/customer.jsp"></put-attribute>
 		<put-list-attribute name="stylesheets" inherit="true"></put-list-attribute>
-		<put-list-attribute name="javascripts" inherit="true"></put-list-attribute>
+		<put-list-attribute name="javascripts" inherit="true">
+			<!-- jQuery 2.2.3 -->
+			<add-attribute value="/static/plugins/jQuery/jquery-2.2.3.min.js" />
+			<add-attribute value="/static/js/app/customer.js"/>
+		</put-list-attribute>
 	</definition>
 
 	<!-- LoginController -->

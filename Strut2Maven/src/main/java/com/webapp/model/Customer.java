@@ -10,8 +10,11 @@ public class Customer {
 	private String Name;
 	private String CustomerNo;
 	private String DistrictID;
+	private String DistrictName;
 	private String WardID;
+	private String WardName;
 	private String ProvinceID;
+	private String ProvinceName;
 	private String Street;
 	private String AddressNo;
 	private String TaxNo;
@@ -20,6 +23,7 @@ public class Customer {
 	private String modifiedUser;
 	private String modifiedDate;
 	private String status;
+	
 	public String getID() {
 		return ID;
 	}
@@ -49,12 +53,6 @@ public class Customer {
 	}
 	public void setWardID(String wardID) {
 		WardID = wardID;
-	}
-	public String getProvinceID() {
-		return ProvinceID;
-	}
-	public void setProvinceID(String provinceID) {
-		ProvinceID = provinceID;
 	}
 	public String getStreet() {
 		return Street;
@@ -103,6 +101,30 @@ public class Customer {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getDistrictName() {
+		return DistrictName;
+	}
+	public void setDistrictName(String districtName) {
+		DistrictName = districtName;
+	}
+	public String getWardName() {
+		return WardName;
+	}
+	public void setWardName(String wardName) {
+		WardName = wardName;
+	}
+	public String getProvinceID() {
+		return ProvinceID;
+	}
+	public void setProvinceID(String provinceID) {
+		ProvinceID = provinceID;
+	}
+	public String getProvinceName() {
+		return ProvinceName;
+	}
+	public void setProvinceName(String provinceName) {
+		ProvinceName = provinceName;
 	}
 	
 	
