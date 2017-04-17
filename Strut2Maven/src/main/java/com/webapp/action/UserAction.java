@@ -12,7 +12,7 @@ import com.webapp.util.DbUtil;
 
 public class UserAction extends ActionSupport{
 	 /**
-	 * 
+	 * userAction
 	 */
 	private static final long serialVersionUID = 1L;
 
